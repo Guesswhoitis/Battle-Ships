@@ -19,8 +19,8 @@ public:
 
 
     void gameIntit(){
-        for(int i =0; i< (sizeof board / sizeof board[0]); i++){
-            for(int j=0; j < (sizeof board[0] / sizeof(int)); j++){
+        for(int i =0; i< 10; i++){
+            for(int j=0; j < 10; j++){
                 board[i][j] = Tile(i,j);
             }
         }
@@ -30,7 +30,7 @@ public:
 
     void gameRun(){
 
-        r.start(&board);
+        r.start(board);
     }
 
 
@@ -40,6 +40,7 @@ int main(){
     SDL_Init(SDL_INIT_EVERYTHING);
     
     ahhhhh m;
+
 
     std::cout << "gg" << std::endl;
     m.gameIntit();

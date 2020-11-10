@@ -4,8 +4,8 @@ Tile::Tile(int x2, int y2){
     x = x2;
     y = y2;
 
-    tileRect.x = x*100;
-    tileRect.y =y*100;
+    tileRect.x = x2*100;
+    tileRect.y =y2*100;
     tileRect.w =100;
     tileRect.h =100;
 }
