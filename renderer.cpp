@@ -1,4 +1,4 @@
-#include "main.h"
+#include "Main.hpp"
 
 
 class renderer{
@@ -9,6 +9,7 @@ private:
     SDL_Window *mainWindow;
     SDL_Renderer *renderer;
     SDL_Texture *crossTexture;
+    SDL_Texture *circleTexture;
 
 public:
     int start(){

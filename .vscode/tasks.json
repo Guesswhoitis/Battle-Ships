@@ -6,11 +6,13 @@
 			"label": "C/C++: cl.exe build active file",
 			"command": "cl.exe",
 			"args": [
+				"/std:c++17",
 				"/Zi",
 				"/EHsc",
 				"/Fe:",
 				"${fileDirname}\\${fileBasenameNoExtension}.exe",
 				"${file}",
+				"*.cpp",
 				"/link",
 				"SDL2-2.0.12/lib/x86/SDL2main.lib",
 				"SDL2-2.0.12/lib/x86/SDL2.lib",
