@@ -11,12 +11,13 @@
 				"/EHsc",
 				"/Fe:",
 				"${fileDirname}\\${fileBasenameNoExtension}.exe",
-				"${file}",
+				"main.cpp",
 				"*.cpp",
 				"/link",
 				"SDL2-2.0.12/lib/x86/SDL2main.lib",
 				"SDL2-2.0.12/lib/x86/SDL2.lib",
-				"SDL2_image-2.0.5/lib/x86/SDL2_image.lib"
+				"SDL2_image-2.0.5/lib/x86/SDL2_image.lib",
+				"/out:main.exe"
 			],
 			"options": {
 				"cwd": "${workspaceFolder}"

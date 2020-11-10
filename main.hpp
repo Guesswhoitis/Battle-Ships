@@ -14,15 +14,18 @@
 class Tile{
 
 public:
-  
-  int getX();
-  int getY();
-  SDL_Texture* getTexture();
-  bool isShip();
+    Tile(){};
+    Tile(int x,int y);
+    int getX();
+    int getY();
+    SDL_Texture* getTexture();
+    bool isShip();
+    SDL_Rect getTileRect();
 private:
     int x;
     int y;
     SDL_Texture* texture;
+    SDL_Rect tileRect;
 };
 
 

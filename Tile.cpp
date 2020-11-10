@@ -1,5 +1,17 @@
 #include "Main.hpp"
 
+Tile::Tile(int x2, int y2){
+    x = x2;
+    y = y2;
+
+    tileRect.x = x*100;
+    tileRect.y =y*100;
+    tileRect.w =100;
+    tileRect.h =100;
+}
+
+
+
 int Tile::getX(){
     return x;
 }
@@ -14,4 +26,8 @@ SDL_Texture* Tile::getTexture(){
 
 bool Tile::isShip(){
     return false;
+}
+
+SDL_Rect Tile::getTileRect(){
+    return tileRect;
 }
