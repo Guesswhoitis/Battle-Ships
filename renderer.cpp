@@ -31,6 +31,10 @@ public:
 
         if (circleTexture == nullptr) std::cout << "circleTexture was not created" << std::endl;
 
+        
+    }
+
+    void renderBoard(Tile (&board)[10][10]){
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
         SDL_RenderClear(renderer);
 
@@ -38,14 +42,15 @@ public:
     
         for(int i =0; i< 10; i++){
             for(int j=0; j < 10; j++){
-                SDL_RenderCopy(renderer,circleTexture,nullptr,&board[i][j].getTileRect());
+
+                SDL_Texture* texture = IMG_LoadTexture(renderer, board[i][j].getTexture().c_str());
+                SDL_RenderCopy(renderer,texture,nullptr,&board[i][j].getTileRect());
                 
             }
         }
         //std::cout << "looped boi" << std::endl;
         
         SDL_RenderPresent(renderer);
-        SDL_Delay(100000);
     }
 
     void doGarbageClear(){

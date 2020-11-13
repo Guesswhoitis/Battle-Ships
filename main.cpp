@@ -21,7 +21,7 @@ public:
     void gameIntit(){
         for(int i =0; i< 10; i++){
             for(int j=0; j < 10; j++){
-                board[i][j] = Tile(i,j);
+                board[i][j] = Tile(i,j,"Textures/cross.png");
             }
         }
 
@@ -31,6 +31,12 @@ public:
     void gameRun(){
 
         r.start(board);
+
+        SDL_Event event;
+        while(1){
+            if(event.type == SDL_QUIT) break;
+            r.renderBoard(board);
+        }
     }
 
 
