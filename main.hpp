@@ -15,16 +15,16 @@ class Tile{
 
 public:
     Tile(){};
-    Tile(int x,int y);
+    Tile(int x,int y,std::string);
     int getX();
     int getY();
-    SDL_Texture* getTexture();
+    std::string getTexture();
     bool isShip();
     SDL_Rect getTileRect();
 private:
     int x;
     int y;
-    SDL_Texture* texture;
+    std::string textureDir;
     SDL_Rect tileRect;
 };
 
@@ -45,14 +45,19 @@ class ShipTile:public Tile{
 public:
     bool isBlownUp();
     std::string getName();
-    bool shipDead();
 private:
     bool blownUp;
-    std::set<ShipTile*> shipTiles;
     std::string name;
 };
 
 
+class Ship{
+public:
+    bool shipDead();
+    void addShipTile(ShipTile*);
+private:
+    std::set<ShipTile*> shipTiles;
+};
 
 
 

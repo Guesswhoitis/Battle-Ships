@@ -19,9 +19,9 @@ public:
 
 
     void gameIntit(){
-        for(int i =0; i< (sizeof board / sizeof board[0]); i++){
-            for(int j=0; j < (sizeof board[0] / sizeof(int)); j++){
-                board[i][j] = Tile(i,j);
+        for(int i =0; i< 10; i++){
+            for(int j=0; j < 10; j++){
+                board[i][j] = Tile(i,j,"Textures/cross.png");
             }
         }
 
@@ -30,7 +30,13 @@ public:
 
     void gameRun(){
 
-        r.start(&board);
+        r.start(board);
+
+        SDL_Event event;
+        while(1){
+            if(event.type == SDL_QUIT) break;
+            r.renderBoard(board);
+        }
     }
 
 
@@ -40,6 +46,7 @@ int main(){
     
     std::cout << SDL_Init(SDL_INIT_EVERYTHING) << std::endl;
     ahhhhh m;
+
 
     std::cout << "gg" << std::endl;
     m.gameIntit();

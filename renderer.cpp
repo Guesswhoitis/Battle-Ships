@@ -13,7 +13,8 @@ private:
     SDL_Texture *circleTexture;
 
 public:
-    void start(Tile (*board)[10][10]){
+    void start(Tile (&board)[10][10]){
+        
         mainWindow = SDL_CreateWindow("Main Menu", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1000, 1000, 0);
 
         if (mainWindow == nullptr) std::cout << "window was not created" << std::endl;
@@ -30,20 +31,26 @@ public:
 
         if (circleTexture == nullptr) std::cout << "circleTexture was not created" << std::endl;
 
-        //SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-       // SDL_RenderClear(renderer);
+        
+    }
 
-        /*
-        for(int i =0; i< (sizeof board / sizeof board[0]); i++){
-            for(int j=0; j < (sizeof board[0] / sizeof(int)); j++){
-               SDL_RenderCopy(renderer,circleTexture,&board[i][j]->getTileRect(),nullptr);
+    void renderBoard(Tile (&board)[10][10]){
+        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+        SDL_RenderClear(renderer);
+
+        //std::cout << "about to loop boi" << std::endl;
+    
+        for(int i =0; i< 10; i++){
+            for(int j=0; j < 10; j++){
+
+                SDL_Texture* texture = IMG_LoadTexture(renderer, board[i][j].getTexture().c_str());
+                SDL_RenderCopy(renderer,texture,nullptr,&board[i][j].getTileRect());
+                
             }
         }
-        */
-        SDL_RenderCopy(renderer,circleTexture,nullptr,&board[0][0]->getTileRect());
-        printf("%d %d %d %d",board[0][0]->getTileRect().x, board[0][0]->getTileRect().y, board[0][0]->getTileRect().w,board[0][0]->getTileRect().h);
+        //std::cout << "looped boi" << std::endl;
+        
         SDL_RenderPresent(renderer);
-        SDL_Delay(100000);
     }
 
     void doGarbageClear(){

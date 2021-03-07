@@ -1,13 +1,15 @@
 #include "Main.hpp"
 
-Tile::Tile(int x2, int y2){
+Tile::Tile(int x2, int y2, std::string newTextureDir){
     x = x2;
     y = y2;
 
-    tileRect.x = x*100;
-    tileRect.y =y*100;
+    tileRect.x = x2*100;
+    tileRect.y =y2*100;
     tileRect.w =100;
     tileRect.h =100;
+
+    textureDir = newTextureDir;
 }
 
 
@@ -20,8 +22,8 @@ int Tile::getY(){
     return y;
 }
 
-SDL_Texture* Tile::getTexture(){
-    return texture;
+std::string Tile::getTexture(){
+    return textureDir;
 }
 
 bool Tile::isShip(){
