@@ -37,8 +37,8 @@ public:
 };
 
 int main(){
-    SDL_Init(SDL_INIT_EVERYTHING);
     
+    std::cout << SDL_Init(SDL_INIT_EVERYTHING) << std::endl;
     ahhhhh m;
 
     std::cout << "gg" << std::endl;
